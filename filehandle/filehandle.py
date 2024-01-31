@@ -41,4 +41,13 @@ print(f.read())
 # "w" - Write - will create a file if the specified file does not exist
 
 
-f = open("filehandle/myfile.txt", "x")
+f = open("filehandle/demofile.txt", "x")
+
+
+# To delete a file, you must import the OS module, and run its os.remove() function:
+
+import os
+if os.path.exists("filehandle/demofile.txt"):
+  os.remove("filehandle/demofile.txt")
+else:
+  print("The file does not exist")
