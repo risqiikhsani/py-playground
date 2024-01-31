@@ -1,5 +1,6 @@
 import greet.greeting
 import data.db
+import data.person
 
 # print(greet.greeting.hello("world"))
 # print("hello world")
@@ -16,10 +17,10 @@ def main():
 
         # Run some queries
         # Example:
-        # data.db.create_person(connection, "John", 30)
-        # data.db.update_person(connection, 1, "Jane", 25)
-        # data.db.read_person(connection, 1)
-        # data.db.delete_person(connection, 1)
+        data.person.create_person(connection, "John", 30)
+        data.person.update_person(connection, 1, "Jane", 25)
+        data.person.read_person(connection, 1)
+        data.person.delete_person(connection, 1)
 
     finally:
         # Close the database connection
