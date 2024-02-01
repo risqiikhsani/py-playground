@@ -2,6 +2,7 @@ import greet.greeting
 import data.db
 import data.db2
 import data.person
+import data.book
 
 # print(greet.greeting.hello("world"))
 # print("hello world")
@@ -35,6 +36,14 @@ def testdb2():
         # Connect to the database
         connection = data.db2.connect()
         data.db2.db_setup(connection)
+
+        db = connection["mydatabase"]
+        collection = db["book"]
+        id = data.book.create_book(collection,"Math","Person1")
+        data.book.read_book(collection, id)
+        data.book.update_book(collection, id, "New Title", "New Author")
+        data.book.delete_book(collection, id)
+
 
     finally:
         # Close the database connection
