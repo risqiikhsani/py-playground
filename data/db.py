@@ -37,7 +37,7 @@ def create_person_table(connection):
 
 def close_connection(connection):
     try:
-        if connection:
+        if connection is not None:
             connection.close()
             print("PostgreSQL connection is closed")
     except (Exception, psycopg2.Error) as error:

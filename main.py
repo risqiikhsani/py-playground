@@ -1,5 +1,6 @@
 import greet.greeting
 import data.db
+import data.db2
 import data.person
 
 # print(greet.greeting.hello("world"))
@@ -7,7 +8,9 @@ import data.person
 # exec(open("collections/collections.py").read())
 # exec(open("arrays/arrays.py").read())
 
-def main():
+
+
+def testdb1():
     try:
         # Connect to the database
         connection = data.db.connect()
@@ -24,8 +27,23 @@ def main():
 
     finally:
         # Close the database connection
-        if connection:
+        if connection is not None:
             data.db.close_connection(connection)
+
+def testdb2():
+    try:
+        # Connect to the database
+        connection = data.db2.connect()
+        data.db2.db_setup(connection)
+
+    finally:
+        # Close the database connection
+        if connection is not None:
+            data.db2.close_connection(connection)
+
+def main():
+    testdb1()
+    testdb2()
 
 if __name__ == "__main__":
     main()
